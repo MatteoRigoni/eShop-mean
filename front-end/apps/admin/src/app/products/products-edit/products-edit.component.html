@@ -1,0 +1,83 @@
+<p-toast></p-toast>
+
+<div class="admin-page">
+  <p-card [header]="isEditMode ? 'Edit Product': 'Add Product'" subheader="You can edit or add products">
+    <div class="grid  mb-2">
+      <div class="col-12">
+        <p-toolbar>
+          <div class="p-toolbar-group-left"></div>
+          <div class="p-toolbar-group-right">
+            <p-button (click)="onSubmit()" styleClass="p-button-success mr-2" [label]="isEditMode ? 'Update': 'Create'"
+              icon="pi pi-plus">
+            </p-button>
+            <p-button routerLink="/products" styleClass="p-button-secondary" label="Cancel"
+              icon="pi pi-arrow-circle-left">
+            </p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <form [formGroup]="form">
+      <div class="p-fluid p-formgrid grid">
+        <div class="field col">
+          <label for="name">Name</label>
+          <input formControlName="name" id="name" type="text" pInputText>
+          <small class="p-error" *ngIf="productForm.name.invalid && isSubmitted">Name is required</small>
+        </div>
+        <div class="field col">
+          <label for="brand">Brand</label>
+          <input formControlName="brand" id="brand" type="text" pInputText>
+          <small class="p-error" *ngIf="productForm.brand.invalid && isSubmitted">Brand is required</small>
+        </div>
+        <div class="field col">
+          <label for="price">Price</label>
+          <p-inputNumber formControlName="price" mode="decimal" [minFractionDigits]="2" id="price" type="text">
+          </p-inputNumber>
+          <small class="p-error" *ngIf="productForm.price.invalid && isSubmitted">Price is required</small>
+        </div>
+      </div>
+      <div class="p-fluid p-formgrid grid">
+        <div class="field col">
+          <label for="countInStock">Count in stock</label>
+          <p-inputNumber formControlName="countInStock" id="countInStock" type="text"></p-inputNumber>
+          <small class="p-error" *ngIf="productForm.countInStock.invalid && isSubmitted">Count in stock is
+            required</small>
+        </div>
+        <div class="field col">
+          <label for="category">Category</label>
+          <p-dropdown [options]="categories"
+          formControlName="category"
+          optionLabel="name"
+          optionValue="id"
+          [filter]="true"
+          filterBy="name"
+          [showClear]="true"
+          placeholder="Select a Category"></p-dropdown>
+          <small class="p-error" *ngIf="productForm.category.invalid && isSubmitted">Category is required</small>
+        </div>
+        <div class="field col">
+          <label for="isFeatured">Featured</label>
+          <div>
+            <p-inputSwitch formControlName="isFeatured" id="isFeatured"></p-inputSwitch>
+          </div>
+        </div>
+        <div class="field col-12">
+          <label for="description">Description</label>
+          <textarea formControlName="description" id="description" type="text" pInputTextarea></textarea>
+          <small class="p-error" *ngIf="productForm.description.invalid && isSubmitted">Description is required</small>
+        </div>
+        <div class="field col-12">
+          <label for="richDescription">Product details</label>
+          <p-editor formControlName="richDescription" [style]="{'height':'150px'}"></p-editor>
+        </div>
+        <div class="field col-12">
+          <label for="image">Main image</label>
+          <input type="file" class="p-inputtext" accept="image/*" (change)="onImageUpload($event)" />
+          <div class="col-2 mt-2 pl-0">
+            <img style="width: 100%;" [src]="imageDisplay" alt="">
+          </div>
+        </div>
+      </div>
+    </form>
+  </p-card>
+</div>

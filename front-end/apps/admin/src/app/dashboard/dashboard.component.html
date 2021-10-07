@@ -1,1 +1,50 @@
-<p>dashboard works!</p>
+<div class="admin-page" *ngIf="statistics.length">
+  <p-card header="Dashboard" subheader="Latest Updates">
+    <div class="grid">
+      <div class="col-3">
+        <p-card [style]="{'background':'#0093e9'}">
+          <div class="d-item">
+            <div>
+              <i class="pi pi-shopping-cart"></i><br />
+              <span class="name">Orders</span>
+            </div>
+            <span class="number">{{ statistics[0] }}</span>
+          </div>
+        </p-card>
+      </div>
+      <div class="col-3">
+        <p-card [style]="{'background':'#4158d0'}">
+          <div class="d-item">
+            <div>
+              <i class="pi pi-briefcase"></i><br />
+              <span class="name">Products</span>
+            </div>
+            <span class="number">{{ statistics[1] }}</span>
+          </div>
+        </p-card>
+      </div>
+      <div class="col-3">
+        <p-card [style]="{'background':'#3eecac'}">
+          <div class="d-item">
+            <div>
+              <i class="pi pi-users"></i><br />
+              <span class="name">Users</span>
+            </div>
+            <span class="number">{{ statistics[2] }}</span>
+          </div>
+        </p-card>
+      </div>
+      <div class="col-3">
+        <p-card [style]="{'background':'#fbda61'}">
+          <div class="d-item">
+            <div>
+              <i class="pi pi-dollar"></i><br />
+              <span class="name">TotalSales</span>
+            </div>
+            <span class="number">{{ statistics[3] | currency }}</span>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </p-card>
+</div>

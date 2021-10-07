@@ -17,6 +17,8 @@
     "strictPropertyInitialization": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },

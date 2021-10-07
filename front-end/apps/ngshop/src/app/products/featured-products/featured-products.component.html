@@ -1,0 +1,8 @@
+<div class="featured-products">
+  <h3>Featured Products</h3>
+  <div class="grid" *ngIf="featuredProducts">
+    <div class="col-3" *ngFor="let featuredProduct of featuredProducts">
+      <ngshop-product-item [product]="featuredProduct"></ngshop-product-item>
+    </div>
+  </div>
+</div>

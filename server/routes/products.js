@@ -183,7 +183,7 @@ router.get('/get/featured/:count?', async (req, res) => {
     if (!products) {
         return res.status(500).json({ success: false })
     }
-    return res.send(products);
+    return res.send({result:products});
 });
 
 router.put('/gallery-images/:id', uploadOptions.array('images', 10), async (req, res) => {

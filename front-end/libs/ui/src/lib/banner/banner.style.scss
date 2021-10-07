@@ -1,0 +1,45 @@
+// colors
+$primary-color: #ff3a00;
+$primary-color-dark: #af2900;
+
+.banner {
+  height: 270px;
+  width: 100%;
+  background-color: #d7effb;
+  border-radius: 15px;
+
+  &-image {
+    text-align: right;
+    padding:30px 50px 20px 0px;
+  }
+
+  &-button {
+    background-color: #ffffff;
+    color: $primary-color;
+    border-radius: 10px;
+    height: 45px;
+    border: 0;
+
+    &:hover,&:active {
+      background-color: #ffffff;
+      color:  var(--surface-800);
+      border: 0;
+    }
+  }
+
+  &-text {
+    color:var(--surface-700);
+    margin-top: 50px;
+
+    h1 {
+      margin-top:0;
+      font-size: 2.5em;
+      font-weight: 400;
+    }
+    h2 {
+      margin-top:0;
+      font-size: 1.5em;
+      font-weight: 300;
+    }
+  }
+}

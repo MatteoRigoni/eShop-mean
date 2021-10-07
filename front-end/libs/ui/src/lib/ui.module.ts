@@ -4,15 +4,19 @@ import { BannerComponent } from './banner/banner.component';
 import { SliderComponent } from './slider/slider.component';
 
 import { AccordionModule } from 'primeng/accordion';
+import { ButtonModule } from 'primeng/button';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
-  imports: [CommonModule, AccordionModule],
+  imports: [CommonModule, AccordionModule, ButtonModule],
   declarations: [
     BannerComponent,
-    SliderComponent
+    SliderComponent,
+    GalleryComponent
   ],
   exports: [
-    BannerComponent
+    BannerComponent,
+    GalleryComponent
   ]
 })
 export class UiModule{}

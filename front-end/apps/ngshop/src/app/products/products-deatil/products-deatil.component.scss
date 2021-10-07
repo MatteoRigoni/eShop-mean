@@ -1,0 +1,57 @@
+// colors
+$primary-color: #ff3a00;
+$primary-color-dark: #af2900;
+
+.product {
+  &-name {
+    font-size: 1.6rem;
+  }
+
+  &-desc {
+    font-size: 1.1em;
+  }
+
+  &-rating {
+    margin: 15px 0;
+  }
+
+  &-price {
+    font-size: 2em;
+    font-weight: 600;
+    border-bottom: 1px solid var(--surface-300);
+    padding: 25px 0;
+
+    .price-before {
+      font-size: 0.7em;
+      margin-left: 10px;
+      font-weight: 200;
+      color: var(--surface-500);
+      text-decoration: line-through;
+    }
+  }
+
+  &-quantity {
+    margin: 25px 0;
+
+    label {
+      font-size: 1.2em;
+    }
+
+    .p-button {
+      background-color: $primary-color;
+      border: 0;
+    }
+  }
+
+  &-actions {
+    .p-button {
+      background-color: $primary-color;
+      border: 0;
+    }
+  }
+}
+
+.product-rich-desc {
+  margin-top: 20px;
+  line-height: 1.6;
+}

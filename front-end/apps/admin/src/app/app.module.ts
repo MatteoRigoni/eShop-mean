@@ -18,9 +18,28 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from '@front-end/products';
+import { UsersService } from '@front-end/users';
+import { OrdersService } from '@front-end/orders';
+import { UsersModule, AuthGuard } from '@front-end/users';
 import { InputTextModule } from 'primeng/inputtext';
+import {InputNumberModule} from 'primeng/inputnumber';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {InputSwitchModule} from 'primeng/inputswitch';
+import {DropdownModule} from 'primeng/dropdown';
+import {EditorModule} from 'primeng/editor';
+import {TagModule} from 'primeng/tag';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import {ColorPickerModule} from 'primeng/colorpicker';
+import {InputMaskModule} from 'primeng/inputmask';
+import { FieldsetModule } from 'primeng/fieldset';
+import { ProductsListComponent } from './products/products-list/products-list.component';
+import { ProductsEditComponent } from './products/products-edit/products-edit.component';
+import { UsersListComponent } from './users/users-list/users-list.component';
+import { UsersEditComponent } from './users/users-edit/users-edit.component';
+import { OrdersListComponent } from './orders/orders-list/orders-list.component';
+import { OrdersDetailComponent } from './orders/orders-detail/orders-detail.component';
+import { AppRoutingModule } from './app-routing.module';
 
 const UX_MODULE = [
   CardModule,
@@ -30,18 +49,15 @@ const UX_MODULE = [
   InputTextModule,
   ToastModule,
   ConfirmDialogModule,
-];
-
-const routes: Routes = [
-  {
-    path: '',
-    component: ShellComponent,
-    children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'categories', component: CategoriesListComponent },
-      { path: 'categories/edit', component: CategoriesEditComponent },
-    ],
-  },
+  ColorPickerModule,
+  InputNumberModule,
+  InputTextareaModule,
+  InputSwitchModule,
+  DropdownModule,
+  EditorModule,
+  TagModule,
+  InputMaskModule,
+  FieldsetModule
 ];
 
 @NgModule({
@@ -52,17 +68,24 @@ const routes: Routes = [
     SidebarComponent,
     CategoriesListComponent,
     CategoriesEditComponent,
+    ProductsListComponent,
+    ProductsEditComponent,
+    UsersListComponent,
+    UsersEditComponent,
+    OrdersListComponent,
+    OrdersDetailComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
     HttpClientModule,
+    UsersModule,
+    AppRoutingModule,
     UX_MODULE,
   ],
-  providers: [ProductsService, MessageService, ConfirmationService],
+  providers: [ProductsService, MessageService, ConfirmationService, UsersService, OrdersService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
